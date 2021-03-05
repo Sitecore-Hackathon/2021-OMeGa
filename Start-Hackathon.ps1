@@ -122,7 +122,7 @@ Write-Host @"
  
       Other team members then have to pull the latest and run `.\Start-Hackathon.ps1`.
 
-          This will generate locally trusted certificates and add hosts entries
+          This will generate locally trusted certificates and add hosts entries.
 
 "@ -ForegroundColor Yellow
 Write-Host "+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+" -ForegroundColor Magenta
