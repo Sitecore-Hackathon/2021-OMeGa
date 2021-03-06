@@ -69,12 +69,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\Visualize.cs" />
-    <Compile Include="Controllers\PresentationVisualizationController.cs" />
-    <Compile Include="Data\DataSource.cs" />
-    <Compile Include="Data\PresentationElement.cs" />
+    <Compile Include="Data\RenderingParameter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\IItemPresentationHierarchyBuilder.cs" />
-    <Compile Include="Services\ItemPresentationHierarchyBuilder.cs" />
     <Compile Include="sitecore modules\Web\PresentationVisualizer\Visualization.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>

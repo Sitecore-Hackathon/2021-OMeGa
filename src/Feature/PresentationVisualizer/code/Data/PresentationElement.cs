@@ -21,18 +21,22 @@ namespace Feature.PresentationVisualizer.Data
 
         [NotNull]
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; }
 
         [NotNull]
         [JsonProperty("type")]
-        public string Type { get; set; }
+        public string Type { get; }
 
         [CanBeNull]
         [JsonProperty("dataSource")]
-        public DataSource DataSource { get; set; }
+        public DataSource DataSource { get; }        
 
         [NotNull]
         [JsonProperty("children")]
-        public IList<PresentationElement> Children { get; set; }
+        public IList<PresentationElement> Children { get; }
+
+        [CanBeNull]
+        [JsonProperty("parameters")]
+        public IReadOnlyCollection<RenderingParameter> Parameters { get; set; }
     }
 }

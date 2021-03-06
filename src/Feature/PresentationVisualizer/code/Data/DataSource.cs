@@ -20,14 +20,14 @@ namespace Feature.PresentationVisualizer.Data
 
         [NotNull]
         [JsonProperty("id")]
-        public ID Id { get; set; }
+        public ID Id { get; }
 
         [NotNull]
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; }
 
         [NotNull]
         [JsonProperty("path")]
-        public string Path { get; set; }
+        public string Path { get; }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using Sitecore.Annotations;
 using Sitecore.Data;
 using Sitecore.Data.Items;
@@ -83,7 +85,12 @@ namespace Feature.PresentationVisualizer.Services
         {
             DataSource dataSource = BuildDataSource(renderingReference.Settings.DataSource, database);
 
-            return new PresentationElement(renderingReference.RenderingItem.DisplayName, RenderingType, dataSource, Enumerable.Empty<PresentationElement>().ToList());
+            PresentationElement rendering = new PresentationElement(renderingReference.RenderingItem.DisplayName, RenderingType, dataSource, Enumerable.Empty<PresentationElement>().ToList())
+            {
+                Parameters = BuildRenderingParameters(renderingReference)
+            };
+
+            return rendering;
         }
 
         [CanBeNull]
@@ -110,6 +117,19 @@ namespace Feature.PresentationVisualizer.Services
             }
 
             return new DataSource(dataSourceItem.ID, dataSourceItem.DisplayName, dataSourceItem.Paths.FullPath);
+        }
+
+        [NotNull]
+        private static IReadOnlyCollection<RenderingParameter> BuildRenderingParameters([NotNull] RenderingReference renderingReference)
+        {
+            if(string.IsNullOrEmpty(renderingReference.Settings.Parameters))
+            {
+                return null;
+            }
+
+            var parameters = HttpUtility.ParseQueryString(renderingReference.Settings.Parameters);
+
+            return parameters.AllKeys.Select(x => new RenderingParameter(x, parameters[x])).ToList();
         }
 
         [NotNull]
