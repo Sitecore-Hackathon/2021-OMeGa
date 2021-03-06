@@ -76,7 +76,6 @@
     </Compile>
     <Compile Include="sitecore modules\Web\PresentationVisualizer\Visualization.aspx.designer.cs" />
     <Compile Include="Templates.cs" />
-    <Compile Include="Commands\Visualize.cs" />
     <Compile Include="sitecore modules\Web\PresentationVisualizer\Visualization.aspx.cs">
       <DependentUpon>Visualization.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
