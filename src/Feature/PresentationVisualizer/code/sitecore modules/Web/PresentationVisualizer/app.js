@@ -4,12 +4,9 @@ const itemId = urlParams.get("id");
 axios
   .get(`/sitecore/api/presentationvisualization/${itemId}`)
   .then(({ data, status }) => {
-    console.log(data);
     if (status === 200 && data) {
-      console.log("good");
       const dataToTransform = data;
       const transformedData = transformChartData(dataToTransform);
-      console.log("transformedData: ", transformedData);
       const simple_chart_config = {
         chart: {
           container: "#chart-root",
@@ -30,10 +27,6 @@ axios
             .text();
           let dataBsContent = "<div>";
           if ($(this).parent().children(".node-datasource").length > 0) {
-            console.log(
-              "try to parse it: ",
-              $(this).parent().children(".node-datasource").first().text()
-            );
             const datasource = JSON.parse(
               $(this).parent().children(".node-datasource").first().text()
             );
@@ -55,8 +48,8 @@ axios
                 .text()
             );
             dataBsContent += `<div><span class='bold'>Rendering parameters:</span> `;
-            for (let renderingParameterName in renderingParameters) {
-              dataBsContent += `<p class='key-value-list'>${renderingParameterName}: ${renderingParameters[renderingParameterName]}</p>`;
+            for (let {name, value} in renderingParameters) {
+              dataBsContent += `<p class='key-value-list'>${name}: ${value}</p>`;
             }
             dataBsContent += "</div>";
           }
