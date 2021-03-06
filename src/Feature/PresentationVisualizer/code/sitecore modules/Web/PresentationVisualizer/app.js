@@ -38,12 +38,12 @@ axios
             dataBsContent += `<div><span class='bold'>Datasource:</span> ${datasourceName} <code>${datasourcePath}</code> ${datasourceId}<div>`;
           }
           if (
-            $(this).parent().children(".node-renderingParameters").length > 0
+            $(this).parent().children(".node-parameters").length > 0
           ) {
             const renderingParameters = JSON.parse(
               $(this)
                 .parent()
-                .children(".node-renderingParameters")
+                .children(".node-parameters")
                 .first()
                 .text()
             );
