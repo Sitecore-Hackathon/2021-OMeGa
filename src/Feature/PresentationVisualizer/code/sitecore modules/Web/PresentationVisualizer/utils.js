@@ -14,7 +14,7 @@ function getNodeIcon(type) {
 
 function transformChartData(originalObject) {
   if (Array.isArray(originalObject) && originalObject.length === 0) return [];
-  const { name, type, dataSource, children } = originalObject;
+  const { name, type, dataSource, children, parameters } = originalObject;
   const result = {
     text: {
       name,
@@ -23,8 +23,10 @@ function transformChartData(originalObject) {
     children: children.map(transformChartData),
   };
   if (dataSource) {
-    console.log("JSON.parse(dataSource): ", dataSource);
     result.text.datasource = JSON.stringify(dataSource);
+  }
+  if(Array.isArray(parameters) && parameters.length > 0) {
+    result.text.parameters = JSON.stringify(parameters);
   }
   return result;
 }
