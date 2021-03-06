@@ -11,6 +11,7 @@ axios
         chart: {
           container: "#chart-root",
           connectors: { type: "step" }, // straight
+          rootOrientation: "WEST"
         },
 
         nodeStructure: transformedData,
@@ -48,7 +49,8 @@ axios
                 .text()
             );
             dataBsContent += `<div><span class='bold'>Rendering parameters:</span> `;
-            for (let {name, value} in renderingParameters) {
+              for (let parameter of renderingParameters) {
+              const { name, value } = parameter;
               dataBsContent += `<p class='key-value-list'>${name}: ${value}</p>`;
             }
             dataBsContent += "</div>";
@@ -57,7 +59,7 @@ axios
           dataBsContent += "</div>";
           $(this).wrap(`<a 
                   type="button"
-                  class='btn btn-success node-wrapper'
+                  class='btn btn-secondary node-wrapper'
                   rel='popover'  
                   data-bs-toggle='popover'
                   data-html='true'
@@ -84,7 +86,7 @@ axios
         });
       }, 1000);
 
-      $(".node-name").css({ fontSize: 21, paddingRight: 6 });
+      $(".node-name").css({ fontSize: 12, paddingRight: 6 });
     } else {
       alert("Something went wrong");
     }
