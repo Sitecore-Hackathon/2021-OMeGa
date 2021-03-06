@@ -16,7 +16,9 @@
     <PackageReference Update="Sitecore.LayoutService" Version="7.0.0" />
     <PackageReference Update="Sitecore.Assemblies.Platform" Version="$(PlatformVersion)" />
     <PackageReference Update="Sitecore.Assemblies.SitecoreHeadlessServicesServer" Version="17.0.0" />
-
+	<PackageReference Update="Sitecore.Mvc" Version="$(PlatformVersion)" />
+    <PackageReference Update="Sitecore.Services.Infrastructure" Version="$(PlatformVersion)" />
+	<PackageReference Update="Sitecore.Annotations" Version="$(PlatformVersion)" />
     <PackageReference Update="Sitecore.AspNet.ExperienceEditor" Version="$(SitecoreAspNetVersion)" />
     <PackageReference Update="Sitecore.AspNet.Tracking" Version="$(SitecoreAspNetVersion)" />
     <PackageReference Update="Sitecore.AspNet.Tracking.VisitorIdentification" Version="$(SitecoreAspNetVersion)" />

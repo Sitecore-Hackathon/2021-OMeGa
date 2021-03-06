@@ -58,14 +58,28 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Sitecore.Annotations" />
     <PackageReference Include="Sitecore.Assemblies.Platform">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Sitecore.Kernel" />
+    <PackageReference Include="Sitecore.Mvc" />
+    <PackageReference Include="Sitecore.Services.Infrastructure" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="**\*.cs" Exclude="$(BaseIntermediateOutputPath)**\*.*;bin\**\*.*;" />
+    <Compile Include="Commands\Visualize.cs" />
+    <Compile Include="Controllers\PresentationVisualizationController.cs" />
+    <Compile Include="Data\DataSource.cs" />
+    <Compile Include="Data\PresentationElement.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\IItemPresentationHierarchyBuilder.cs" />
+    <Compile Include="Services\ItemPresentationHierarchyBuilder.cs" />
+    <Compile Include="sitecore modules\Web\PresentationVisualizer\Visualization.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sitecore modules\Web\PresentationVisualizer\Visualization.aspx.designer.cs" />
+    <Compile Include="Templates.cs" />
     <Compile Include="Commands\Visualize.cs" />
     <Compile Include="sitecore modules\Web\PresentationVisualizer\Visualization.aspx.cs">
       <DependentUpon>Visualization.aspx</DependentUpon>
@@ -77,6 +91,12 @@
     <Content Include="App_Config\Include\Feature\Feature.PresentationVisualizer.config" />
     <Content Include="sitecore modules\Web\PresentationVisualizer\Visualization.aspx" />
     <None Include="Properties\PublishProfiles\Default.pubxml" />
+    <Compile Include="Controllers\PresentationVisualizationController.cs" />
+    <Compile Include="Data\DataSource.cs" />
+    <Compile Include="Data\PresentationElement.cs" />
+    <Compile Include="Services\IItemPresentationHierarchyBuilder.cs" />
+    <Compile Include="Services\ItemPresentationHierarchyBuilder.cs" />
+    <Content Include="App_Config\Include\Feature\Feature.PresentationVisualizer.config" />
     <None Include="README.md" />
     <None Include="web.config" />
     <None Include="web.Debug.config">
